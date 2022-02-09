@@ -1,12 +1,13 @@
 from django import forms
-from notes.models import Note
+from .models import Note
 
-class AddNoteForm(forms.ModelForm):
+
+class NoteForm(forms.ModelForm):
 
     class Meta:
         model = Note
         fields = ['title', 'text']
         widgets = {
             'title': forms.TextInput(attrs={'class': 'form-control'}),
-            'text': forms.Textarea(attrs={'class': 'form-control', 'rows': 5}),
+            'text': forms.Textarea(attrs={'class': 'form-control', 'rows': 8}),
         }

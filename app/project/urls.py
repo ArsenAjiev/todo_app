@@ -1,4 +1,4 @@
-"""todo URL Configuration
+"""Project URL Configuration
 
 The `urlpatterns` list routes URLs to views. For more information please see:
     https://docs.djangoproject.com/en/4.0/topics/http/urls/
@@ -16,11 +16,13 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path, include
 from django.conf import settings
+from django.contrib.auth import views as auth_views
+
 
 urlpatterns = [
+    path('', include('notes.urls'), name='notes'),
     path('admin/', admin.site.urls),
-    path('', include('notes.urls')),
-
+    path('login/', auth_views.LoginView.as_view(template_name='login.html'), name='login'),
 ]
 
 if settings.DEBUG:
