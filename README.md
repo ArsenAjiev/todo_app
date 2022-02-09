@@ -25,6 +25,10 @@ pip3.8 install -r app/requirements.txt
 app/todo/manage.py migrate
 ```
 
+### collect assets 
+```shell
+app/todo/manage.py collectstatic
+```
 
 ### run server
 

@@ -122,7 +122,7 @@ users.acl
 
 
 # Custom rules
-app/media
-app/static
+app/todo/files/media
+app/todo/files/static
 
 app/htmlcov
