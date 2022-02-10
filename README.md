@@ -2,9 +2,9 @@
 
 ### psql
 ```postgresql
-CREATE USER user_41 PASSWORD 'user';
-CREATE DATABASE db_todo OWNER user_41;
-GRANT ALL PRIVILEGES ON DATABASE db_todo TO user_41;
+CREATE USER custom_user PASSWORD '1qw2er3ty';
+CREATE DATABASE todo OWNER custom_user;
+GRANT ALL PRIVILEGES ON DATABASE todo TO custom_user;
 ```
 
 ### venv
