@@ -33,3 +33,27 @@ app/todo/manage.py collectstatic
 ### run server
 
 ...
+
+
+# Docker
+
+
+```shell
+docker system prune -a
+```
+
+```shell
+docker-compose build --no-cache
+```
+
+```shell
+docker-compose up -d --force-recreate
+```
+
+```shell
+docker-compose exec app ./manage.py migrate
+```
+
+```shell
+docker-compose exec app ./manage.py createsuperuser
+```
