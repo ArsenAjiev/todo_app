@@ -2,9 +2,9 @@
 
 ### psql
 ```postgresql
-CREATE USER user_41 PASSWORD 'user';
-CREATE DATABASE db_todo OWNER user_41;
-GRANT ALL PRIVILEGES ON DATABASE db_todo TO user_41;
+CREATE USER custom_user PASSWORD '1qw2er3ty';
+CREATE DATABASE todo OWNER custom_user;
+GRANT ALL PRIVILEGES ON DATABASE todo TO custom_user;
 ```
 
 ### venv
@@ -33,3 +33,27 @@ app/todo/manage.py collectstatic
 ### run server
 
 ...
+
+
+# Docker
+
+
+```shell
+docker system prune -a
+```
+
+```shell
+docker-compose build --no-cache
+```
+
+```shell
+docker-compose up -d --force-recreate
+```
+
+```shell
+docker-compose exec app ./manage.py migrate
+```
+
+```shell
+docker-compose exec app ./manage.py createsuperuser
+```

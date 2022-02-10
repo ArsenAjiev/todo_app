@@ -1,0 +1,30 @@
+{% extends 'layout.html' %}
+
+{% block title %}Login{% endblock %}
+
+{% block content %}
+    <div class="row justify-content-center mt-3">
+        <div class="col-3">
+
+            {% include 'errors.html' with errors=form.non_field_errors %}
+
+            <form method="POST" action="{% url 'login' %}">
+                {% csrf_token %}
+                <div class="mb-4">
+                    <label class="form-label">Username:</label>
+                    {% include 'errors.html' with errors=form.username.errors %}
+                    <input type="text" name="username" class="form-control"/>
+                </div>
+                <div class="mb-5">
+                    <label class="form-label">Password:</label>
+                    <div class="text-danger small">{{ form.password.errors }}</div>
+                    <input type="password" name="password" class="form-control" required/>
+                </div>
+                <div>
+                    <button type="submit" class="btn d-block w-100 btn-primary">Login</button>
+                </div>
+            </form>
+
+        </div>
+    </div>
+{% endblock %}
