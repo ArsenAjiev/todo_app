@@ -1,47 +1,30 @@
-version: "3.9"
+version: "3.5"
 
 services:
   db:
     container_name: db
     image: postgres:latest
+    ports:
+      - 5432:5432
     volumes:
     - postgres-data:/var/lib/postgresql/data/
-    environment:
-      - POSTGRES_NAME=postgres
-      - POSTGRES_USER=postgres
-      - POSTGRES_PASSWORD=
-    ports:
-      - 5432
-    networks:
-      - app-network
+    env_file:
+      - ./docker/postgres/.env
 
   app:
     container_name: app
     build:
       context: .
-      dockerfile: ./docker/django/Dockerfile
+      dockerfile: ./docker/app/Dockerfile
     command: python manage.py runserver 0.0.0.0:8000
-    volumes:
-      - ./app/:/usr/src/app/
     ports:
       - 8000:8000
-#    env_file:
-#      - ./.env.dev
-    environment:
-      - DB_NAME=postgres
-      - DB_USER=postgres
-      - DB_PASSWORD=
-      - DB_HOST=db
-      - DB_PORT=5432
-    networks:
-      - app-network
+    volumes:
+      - ./app/:/usr/src/app/
+    env_file:
+      - ./docker/app/.env
     depends_on:
       - db
-
-
-networks:
-  app-network:
-    driver: bridge
 
 volumes:
   postgres-data:
