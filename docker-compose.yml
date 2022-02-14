@@ -16,15 +16,24 @@ services:
     build:
       context: .
       dockerfile: ./docker/app/Dockerfile
-    command: python manage.py runserver 0.0.0.0:8000
-    ports:
-      - 8000:8000
+    command: bash -c "python manage.py makemigrations && python manage.py migrate && gunicorn project.wsgi -b 0.0.0.0:8000"
+    expose:
+      - 8000
     volumes:
       - ./app/:/usr/src/app/
     env_file:
       - ./docker/app/.env
     depends_on:
       - db
+
+  nginx:
+    container_name: nginx
+    build: ./docker/nginx
+    ports:
+       - "8080:80"
+    depends_on:
+      - app
+
 
 volumes:
   postgres-data:
