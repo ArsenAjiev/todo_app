@@ -41,17 +41,22 @@ app/todo/manage.py collectstatic
 ```shell
 docker system prune -a
 ```
-
 ```shell
-docker-compose build --no-cache
+docker volume ls
+# Remove all volumes
+docker volume rm
 ```
 
 ```shell
-docker-compose up -d --force-recreate
+docker-compose up -d --build --force-recreate db
 ```
 
 ```shell
-docker-compose exec app ./manage.py migrate
+docker-compose up -d --build --force-recreate app
+```
+
+```shell
+docker-compose up -d --build --force-recreate nginx
 ```
 
 ```shell
