@@ -11,6 +11,7 @@ services:
     env_file:
       - ./docker/postgres/.env
 
+
   app:
     container_name: app
     build:
@@ -24,6 +25,9 @@ services:
       - media-files:/usr/src/app/files/media
     env_file:
       - ./docker/app/.env
+    depends_on:
+      - db
+
 
   nginx:
     container_name: nginx
@@ -35,6 +39,8 @@ services:
     volumes:
       - static-files:/app/static
       - media-files:/app/media
+    depends_on:
+      - app
 
 
 volumes:
