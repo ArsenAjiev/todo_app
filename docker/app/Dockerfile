@@ -23,8 +23,8 @@ RUN pip install -r requirements.txt
 COPY ./docker/app/entrypoint.sh /entrypoint.sh
 RUN chmod +x /entrypoint.sh
 
-#COPY ./docker/wait-for-it.sh /wait-for-it.sh
-#RUN chmod +x /wait-for-it.sh
+COPY ./docker/wait-for-it.sh /wait-for-it.sh
+RUN chmod +x /wait-for-it.sh
 
 ENTRYPOINT ["/entrypoint.sh"]
 

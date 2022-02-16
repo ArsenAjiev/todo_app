@@ -47,16 +47,10 @@ docker volume ls
 docker volume rm
 ```
 
-```shell
-docker-compose up -d --build --force-recreate db
-```
+### Run all at once
 
 ```shell
-docker-compose up -d --build --force-recreate app
-```
-
-```shell
-docker-compose up -d --build --force-recreate nginx
+docker-compose up -d --build --force-recreate
 ```
 
 ```shell
