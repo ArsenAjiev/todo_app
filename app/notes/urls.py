@@ -1,10 +1,11 @@
 from django.urls import path
-from .views import destroy_view, index_view, create_view
+from notes import views
 
 app_name = 'notes'
 
 urlpatterns = [
-    path('', index_view, name='index'),
-    path('add/', create_view, name='create'),
-    path('del/<pk>/', destroy_view, name='destroy'),
+    path('', views.index_view, name='index'),
+    path('add/', views.save_form_view, name='create'),
+    path('edit/<int:note_pk>/', views.save_form_view, name='update'),
+    path('del/<int:note_pk>/', views.destroy_view, name='destroy'),
 ]
