@@ -32,6 +32,8 @@ app/todo/manage.py collectstatic
 
 ### run server
 
+
+
 ...
 
 
