@@ -1,36 +1,43 @@
 {% extends 'layout.html' %}
+{% load static %}
 
-{% block title %}MY NOTES{% endblock %}
+{% block title %}<span class="text-shadow text-white">MY NOTES</span>{% endblock %}
 
 
 {% block actions %}
-    <a href="{% url 'notes:create' %}"class="btn btn-primary px-4">Create</a>
+    <a href="{% url 'notes:create' %}" class="btn btn-primary px-4">Create</a>
 {% endblock %}
 
 {% block content %}
-    <div class="row row-cols-3">
+    <div class="row row-cols-3 g-5">
 
         {% for item in items %}
             <div class="col">
 
-                <div class="card">
-                    {% if item.slug %}
-                        <div class="card-header text-truncate">{{ item.slug }}</div>
-                    {% endif %}
+                <div class="card rounded-3 card-shadow h-100 border">
                     <div class="card-body">
-                        <h4 class="card-title">{{ item.title }}</h4>
-                        <p class="card-text">{{ item.text }}</p>
+                        {% if item.slug %}
+                            <small class="text-muted card-text">{{ item.slug }}</small>
+                        {% endif %}
+                        <h5 class="mb-5 card-title">{{ item.title }}</h5>
+
+                        <p class="card-text mb-5">{{ item.text }}</p>
                         <p class="card-text">
                             <small class="text-muted">{{ item.created_at }}</small>
                         </p>
                     </div>
-                    <div class="card-footer note-footer">
-                        <a href="{% url 'notes:update' item.id %}" class="btn px-3 d-block btn-primary">Edit</a>
-                        <a href="{% url 'notes:destroy' item.id %}"
-                           class="btn btn-outline-danger px-3"
-                           onclick="return confirm('Are you sure ?')">
-                            Delete
-                        </a>
+                    <div class="card-footer note-footer p-3 justify-content-between">
+                        <div class="col-4">
+                            <a href="{% url 'notes:update' item.id %}"
+                               class="btn d-block w-100 btn-outline-primary">Edit</a>
+                        </div>
+                        <div class="col-auto">
+                            <a href="{% url 'notes:destroy' item.id %}" class="btn btn-outline-danger px-3"
+                               onclick="return confirm('Are you sure ?')">
+                                Delete
+                            </a>
+
+                        </div>
                     </div>
                 </div>
 

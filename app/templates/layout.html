@@ -5,18 +5,22 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="icon" type="image/png" sizes="32x32" href="{% static 'notes/img/favicon.png'%}">
+    {% block style %}
     <link href="{% static 'notes/css/bootstrap.min.css' %}" rel="stylesheet">
     <link href="{% static 'notes/css/style.css' %}" rel="stylesheet">
-    <title>TODO APP qfdq</title>
+    {% endblock %}
+    <title>APP</title>
 </head>
 <body>
 <div class="container">
-    <div class="row my-3 align-items-center justify-content-center">
-        <h3 class="col-auto mb-0">{% block title %}{% endblock %}</h3>
-        <div class="col-auto">{% block actions %}{% endblock %}</div>
+    <div class="row align-items-center mb-5 justify-content-center">
+        <h1 class="col-auto fw-bolder mt-5">{% block title %}{% endblock %}</h1>
+        <div class="col-auto mt-5">{% block actions %}{% endblock %}</div>
     </div>
     {% block content %}{% endblock %}
 </div>
-<script src="{% static 'notes/js/bootstrap.bundle.min.js' %}"></script>
+{% block script %}
+    <script src="{% static 'notes/js/bootstrap.bundle.min.js' %}"></script>
+{% endblock %}
 </body>
 </html>

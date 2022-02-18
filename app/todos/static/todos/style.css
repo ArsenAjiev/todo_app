@@ -1,0 +1,94 @@
+@import url('https://fonts.googleapis.com/css?family=Nunito&display=swap');
+
+
+html, body {
+    padding: 0;
+    margin: 0;
+}
+html {
+    height: 100%;
+}
+body {
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    position: fixed;
+    overflow: hidden;
+    /*background: linear-gradient(#85d8ce, #085078);*/
+     background: linear-gradient(to bottom, #6dd5ed, #2193b0);
+    /*background-image: linear-gradient(-225deg, #2CD8D5 0%, #C5C1FF 56%, #FFBAC3 100%);*/
+    /*background-image: linear-gradient(to bottom, #355c7d 0%, #6c5b7b 56%, #c06c84 100%);*/
+}
+
+.form-container {
+    position: absolute;
+    top: 5vh;
+    left: 50%;
+    transform: translate(-50%, 0);
+    box-shadow: 0 6px 9px 1px rgba(0, 0, 0, .35);
+    width: 540px;
+    /*height: 680px;*/
+    max-height: 100%;
+    transition: .35s opacity .35s ease-in-out, .35s transform .35s ease-in-out;
+}
+
+.form-container.hidden{
+    transform: translate(-50%, 2%);
+    opacity: 0;
+    transition: none;
+}
+
+.form-container .element-list{
+    height: 550px;
+    overflow-y: scroll
+}
+.form-container ul{
+
+}
+.form-container ul li{
+    border: 1px solid transparent;
+    list-style: none;
+    transition: .25s color ease-out, .3s background-color ease-out, .3s border-color ease-out, .25s box-shadow ease-out;
+    cursor: pointer;
+    box-shadow: 0 3px 7px rgba(0,0,0,.25);
+    color: var(--bs-secondary);
+}
+
+.form-container li:hover:not(.checked){
+    background-color: var(--bs-gray-200);
+    border-color: var(--bs-gray-300);
+    color: #000;
+    cursor: pointer;
+    box-shadow: 0 5px 7px rgba(0,0,0,.3);
+}
+.form-container .checked{
+    text-decoration: line-through;
+    background-color: transparent;
+    border-color: var(--bs-gray-200);
+    color: var(--bs-gray-500);
+    box-shadow: 0 0 0 rgba(0,0,0,0);
+}
+.form-container .checked:hover {
+    border-color: var(--bs-gray-300);
+    color: var(--bs-gray-700);
+}
+
+
+.form-container button.btn-info {
+    border-color: #0BB1D2;
+    background-color: #0BB1D2;
+
+    transition-duration: .35s;
+    transition-timing-function: ease-in-out;
+    transition-property: border-color, background-color;
+
+    color: var(--bs-white);
+}
+
+.form-container button.btn-info:hover {
+    color: var(--bs-white);
+    background-color: #087E96;
+    border-color: #087E96;
+}
+
