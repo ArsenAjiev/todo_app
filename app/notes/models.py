@@ -4,6 +4,7 @@ from django.contrib.auth import get_user_model
 
 class Note(models.Model):
     title = models.CharField(max_length=255)
+    slug = models.SlugField(unique=True, null=True, blank=True)
     text = models.TextField()
     is_public = models.BooleanField(default=False)
     created_at = models.DateTimeField(auto_now_add=True)
