@@ -5,23 +5,22 @@
 
 
 {% block actions %}
-    <a href="{% url 'notes:create' %}"class="btn btn-primary px-4">Create</a>
+    <a href="{% url 'notes:create' %}" class="btn btn-primary px-4">Create</a>
 {% endblock %}
 
 {% block content %}
-    <div class="row row-cols-3">
+    <div class="row row-cols-3 g-5">
 
         {% for item in items %}
             <div class="col">
 
-                <div class="card shadow h-100 border-secondary">
-                    {% if item.slug %}
-                        <div class="card-header text-white-50 bg-secondary p-3 text-truncate">
-                            <small>{{ item.slug }}</small>
-                        </div>
-                    {% endif %}
+                <div class="card rounded-3 card-shadow h-100 border">
                     <div class="card-body">
-                        <h3 class="mb-5 card-title">{{ item.title }}</h3>
+                        {% if item.slug %}
+                            <small class="text-muted card-text">{{ item.slug }}</small>
+                        {% endif %}
+                        <h5 class="mb-5 card-title">{{ item.title }}</h5>
+
                         <p class="card-text mb-5">{{ item.text }}</p>
                         <p class="card-text">
                             <small class="text-muted">{{ item.created_at }}</small>
@@ -29,7 +28,8 @@
                     </div>
                     <div class="card-footer note-footer p-3 justify-content-between">
                         <div class="col-4">
-                            <a href="{% url 'notes:update' item.id %}" class="btn d-block w-100 btn-primary">Edit</a>
+                            <a href="{% url 'notes:update' item.id %}"
+                               class="btn d-block w-100 btn-outline-primary">Edit</a>
                         </div>
                         <div class="col-auto">
                             <a href="{% url 'notes:destroy' item.id %}" class="btn btn-outline-danger px-3"

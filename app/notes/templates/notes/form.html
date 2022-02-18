@@ -3,6 +3,10 @@
 
 {% block title %}<span class="text-shadow text-white">NEW NOTE</span>{% endblock %}
 
+{% block actions %}
+    <a href="{% url 'notes:index' %}" class="btn btn-secondary px-4">Back</a>
+{% endblock %}
+
 {% block style %}
     {{ block.super }}
     <link href="{% static 'notes/css/style.css' %}" rel="stylesheet">
