@@ -17,10 +17,13 @@ from django.contrib import admin
 from django.urls import path, include
 from django.conf import settings
 from django.contrib.auth import views as auth_views
+from django.views.generic.base import TemplateView
 
 
 urlpatterns = [
-    path('', include('notes.urls'), name='notes'),
+    path('', TemplateView.as_view(template_name='home.html'), name='home'),
+    path('notes/', include('notes.urls'), name='notes'),
+    path('todos/', include('todos.urls'), name='todos'),
     path('admin/', admin.site.urls),
     path('login/', auth_views.LoginView.as_view(template_name='login.html'), name='login'),
 ]

@@ -1,0 +1,18 @@
+{% extends 'layout.html' %}
+{% load static %}
+
+{% block content %}
+<div class="row justify-content-center align-items-center mt-5">
+    <div class="col-auto">
+        <a class="home-link hidden" href="{% url 'notes:index' %}">Notes</a>
+    </div>
+    <div class="col-auto offset-3">
+        <a class="home-link hidden" href="{% url 'todos:index' %}">TODO</a>
+    </div>
+</div>
+{% endblock %}
+
+{% block script %}
+    {{ block.super }}
+    <script src="{% static 'notes/js/home.js' %}"></script>
+{% endblock %}
