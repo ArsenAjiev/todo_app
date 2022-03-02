@@ -1,5 +1,5 @@
 <template>
-<div class="signup">
+<div class="container">
   <h1> Sign up </h1>
     <form @submit.prevent="submitForm">
     <input type="text" name="username" v-model="username">

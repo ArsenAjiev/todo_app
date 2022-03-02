@@ -1,5 +1,5 @@
 <template>
-<div class="login">
+<div class="container">
   <h1> login </h1>
     <form @submit.prevent="submitForm">
     <input type="text" name="username" v-model="username">
@@ -38,6 +38,7 @@ export default {
             axios.defaults.headers.common['Authorization'] = "Token " + token
 
             localStorage.setItem("token", token)
+            this.$router.push({name: 'Home'})
           })
           .catch(error => {
             console.log(error)
