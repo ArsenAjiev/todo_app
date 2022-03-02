@@ -1,4 +1,6 @@
 from rest_framework import viewsets
+from rest_framework.permissions import IsAuthenticated
+
 from api.notes.serializers import NoteSerializer
 from notes.models import Note
 
@@ -6,3 +8,5 @@ from notes.models import Note
 class NoteViewSet(viewsets.ModelViewSet):
     queryset = Note.objects.all().order_by("-created_at")
     serializer_class = NoteSerializer
+
+

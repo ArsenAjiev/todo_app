@@ -5,6 +5,11 @@ export default createStore({
     token: '',
     isAuthenticated: false
   },
+  getters: {
+      loggedIn(state) {
+      return state.token !== ''
+  }
+  },
   mutations: {
     initializeStore(state) {
       if (localStorage.getItem('token')) {
