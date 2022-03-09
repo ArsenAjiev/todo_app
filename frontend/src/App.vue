@@ -1,18 +1,29 @@
 <template>
+    <div class="container mt-5">
+  <nav class="navbar navbar-expand-lg navbar-light bg-light" >
+    <a class="navbar-brand p-lg-3" href="/">Home</a>
 
-  <div class="container mt-5">
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <ul class="navbar-nav me-auto ">
+<li v-if="loggedIn">
+          <router-link class="nav-link active" aria-current="page" :to="{ name: 'Create' }"> Create </router-link>
+       </li>
+        </ul>
 
-    <ul class="nav">
-      <li><a href="/"> Home </a> | </li>
-      <li v-if="loggedIn"><router-link :to="{ name: 'Create' }"> Create </router-link> | </li>
-      <li v-if="loggedIn"><router-link :to="{ name: 'Edit' }"> Edit </router-link> | </li>
-      <li v-if="!loggedIn"><router-link to="/login">Log In</router-link> | </li>
-      <li v-if="!loggedIn"><router-link :to="{ name: 'Signup' }">Sign up</router-link> | </li>
-      <li v-if="loggedIn"><a v-on:click="logout" href="#"> Logout </a> | </li>
-    </ul>
-
-
-  </div>
+        <span class="navbar-text">
+        <ul class="navbar-nav me-auto ">
+        <li v-if="!loggedIn">
+          <router-link class="nav-link active" aria-current="page" to="/login">Log In</router-link>
+       </li>
+        <li v-if="!loggedIn">
+          <router-link class="nav-link active" aria-current="page" :to="{ name: 'Signup' }"> Sign up </router-link>
+       </li>
+       <li  v-if="loggedIn"> <a class="nav-link active" aria-current="page" v-on:click="logout" href="#"> Logout </a>  </li>
+       </ul>
+          </span>
+    </div>
+    </nav>
+    </div>
 
   <router-view/>
 </template>
@@ -60,3 +71,11 @@ export default {
 
 </script>
 
+<style scoped>
+
+
+
+
+
+
+</style>
