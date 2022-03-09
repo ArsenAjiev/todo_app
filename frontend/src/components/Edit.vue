@@ -1,15 +1,18 @@
 <template>
-<div class="container">
- <h1> edit </h1>
-</div>
+  <div class="container mt-4">
+
+   Edit
+
+  </div>
 </template>
 
 <script>
 export default {
-  name: "Edit"
+  name: "Edit",
+
+
 }
 </script>
 
 <style scoped>
-
 </style>

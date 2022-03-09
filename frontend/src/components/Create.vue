@@ -9,13 +9,14 @@
     placeholder="Please enter tiltle"
     v-model="formData.title"
     />
+    <br>
     <input
     type="text"
     class="form-control"
     placeholder="Please enter slug"
     v-model="formData.slug"
     >
-
+    <br>
     <textarea
     rows="10"
     class="form-control"
@@ -57,16 +58,12 @@ export default {
   name: "Create-item",
   methods: {
     createPost() {
-      console.warn("method work")
         if(!this.formData.title || !this.formData.text) {
           this.errore = "Please add all fields"
-          console.warn("no data")
         }
         else {
-          console.warn("data exist")
-          console.log(this.formData)
           axios.post('http://127.0.0.1:8000/api/notes/', this.formData)
-          .then(response => console.log(response))
+          // .then(response => console.log(response))
           .then(() => {
             this.$router.push({
               name: 'Home'
