@@ -1,5 +1,6 @@
 <template>
     <div class="container mt-5">
+    <h1 class="notes"> Notes </h1>
   <nav class="navbar navbar-expand-lg navbar-light bg-light" >
     <a class="navbar-brand p-lg-3" href="/">Home</a>
 
@@ -45,8 +46,6 @@ export default {
     logout()
     {
       const token = this.$store.state.token
-      console.log(token)
-      console.log('logout')
       localStorage.clear()
       this.$router.push({name: 'Login'})
     },
@@ -73,6 +72,16 @@ export default {
 
 <style scoped>
 
+.notes {
+    display: flex;
+    justify-content: center;
+    font-weight: bolder;
+    font-size: 5rem;
+    color: #0a731e;
+    text-decoration: none;
+    text-shadow: 2px 2px 4px rgba(0,0,0, .45);
+    transition: .35s color ease-in-out, .35s opacity ease-out, .35s text-shadow ease-in-out;
+}
 
 
 

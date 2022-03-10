@@ -12,7 +12,7 @@ router.register(r"notes", NoteViewSet, basename="notes")
 
 urlpatterns = [
     path("", include(router.urls)),
-    # path("login/", UserLoginView.as_view(), name="login"),
+    #path("login/", UserLoginView.as_view(), name="login"),
     path('auth/', include('djoser.urls')),
     path('auth/', include('djoser.urls.authtoken')),
 
