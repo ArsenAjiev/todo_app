@@ -35,12 +35,22 @@ services:
       context: .
       dockerfile: ./docker/nginx/Dockerfile
     ports:
-       - 80:80
+       - 5000:80
     volumes:
       - static-files:/app/static
       - media-files:/app/media
     depends_on:
       - app
+
+  vue:
+    container_name: vue
+    build:
+      context: .
+      dockerfile: ./docker/vue/Dockerfile
+    ports:
+      - 8080:8080
+    volumes:
+       - ./frontend:/app
 
 
 volumes:
